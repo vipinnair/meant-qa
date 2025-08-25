@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "tailwindcss init -p || true"
+    // "postinstall": "tailwindcss init -p || true"
   },
   "dependencies": {
     "@supabase/ssr": "0.5.1",
