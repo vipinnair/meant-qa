@@ -27,7 +27,7 @@ export const braintreeProvider: PaymentProvider = {
         paymentMethodNonce: p.nonce,
         options: { submitForSettlement: true },
         orderId: p.orderId || p.registrationId || undefined,
-        descriptor: { name: "MEANT*PAYMENT" }
+        // descriptor: { name: "MEANT*PAYMENT" }
       });
       if (sale.success) {
         return { ok: true, txnId: sale.transaction?.id, raw: sale };

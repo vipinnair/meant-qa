@@ -36,10 +36,9 @@ export default function PaymentDropIn({ orderId, registrationId, amountCents, su
         const instance = await dropin.create({
           authorization: clientToken,
           container: containerRef.current!,
-          paypal: { flow: "checkout", amount: (amountCents/100).toFixed(2), currency: "USD" },
-          // Apple Pay will only work once configured in Braintree & on supported devices
-          applePay: { displayName: "MEANT", paymentRequest: { total: { label: "MEANT", amount: (amountCents/100).toFixed(2) } } }
+          paypal: { flow: "checkout", amount: (amountCents / 100).toFixed(2), currency: "USD" }
         });
+        
         instanceRef.current = instance;
         if (mounted) setReady(true);
       } catch (e: any) {
@@ -78,7 +77,7 @@ export default function PaymentDropIn({ orderId, registrationId, amountCents, su
       {!isMock && <div ref={containerRef} />}
       {err && <div className="text-red-600">{err}</div>}
       <button onClick={onPay} disabled={!ready} className="px-4 py-2 rounded bg-brand-600 text-white disabled:opacity-50">
-        {isMock ? "Simulate Payment" : `Pay $${(amountCents/100).toFixed(2)}`}
+        {isMock ? "Simulate Payment" : `Pay $${(amountCents / 100).toFixed(2)}`}
       </button>
     </div>
   );

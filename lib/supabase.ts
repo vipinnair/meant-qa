@@ -1,11 +1,10 @@
-"use server";
 
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import { env } from "@/lib/env";
 import { createClient } from "@supabase/supabase-js";
 
-export async function getSupabaseServer() {
+export function getSupabaseServer() {
   const cookieStore = cookies();
   return createServerClient(
     env.supabaseUrl,
