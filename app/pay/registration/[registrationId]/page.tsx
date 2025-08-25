@@ -4,7 +4,7 @@ import { getSupabaseAdmin } from "@/lib/supabase";
 import { notFound } from "next/navigation";
 
 async function getRegistration(id: string) {
-  const db = getSupabaseAdmin();
+  const db = await getSupabaseAdmin();
   const { data } = await db.from("registrations").select("*, events(*)").eq("id", id).maybeSingle();
   return data;
 }

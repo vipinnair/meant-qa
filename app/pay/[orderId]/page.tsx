@@ -4,7 +4,7 @@ import { getSupabaseAdmin } from "@/lib/supabase";
 import { notFound } from "next/navigation";
 
 async function getOrder(orderId: string) {
-  const db = getSupabaseAdmin();
+  const db = await getSupabaseAdmin();
   const { data } = await db.from("membership_orders").select("*").eq("id", orderId).maybeSingle();
   return data;
 }

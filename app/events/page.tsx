@@ -4,7 +4,7 @@ import { getSupabaseAdmin } from "@/lib/supabase";
 import { format } from "date-fns";
 
 async function getEvents() {
-  const db = getSupabaseAdmin();
+  const db = await getSupabaseAdmin();
   const { data } = await db.from("events").select("*").order("start_at", { ascending: true });
   return data || [];
 }

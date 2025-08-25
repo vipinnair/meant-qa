@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 async function getMembers() {
-  const db = getSupabaseAdmin();
+  const db = await getSupabaseAdmin();
   const { data } = await db.from("members").select("*").order("created_at", { ascending: false }).limit(100);
   return data || [];
 }

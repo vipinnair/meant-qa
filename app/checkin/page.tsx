@@ -1,7 +1,7 @@
 'use client';
 
 import Container from "@/components/Container";
-import Scanner from "@/components/Scanner";
+// import Scanner from "@/components/Scanner";
 import { useState } from "react";
 
 export default function CheckinPage() {
@@ -18,7 +18,7 @@ export default function CheckinPage() {
     <Container>
       <div className="py-10">
         <h1 className="text-2xl font-semibold mb-4">Event Check-in</h1>
-        <Scanner onCode={onCode} />
+        {/* <Scanner onCode={onCode} /> */}
         {msg && <div className="mt-4 p-3 border rounded">{msg}</div>}
       </div>
     </Container>

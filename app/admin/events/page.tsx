@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 async function getEvents() {
-  const db = getSupabaseAdmin();
+  const db = await getSupabaseAdmin();
   const { data } = await db.from("events").select("*").order("start_at", { ascending: true });
   return data || [];
 }

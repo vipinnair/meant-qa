@@ -12,7 +12,6 @@
   "dependencies": {
     "@supabase/ssr": "0.5.1",
     "@supabase/supabase-js": "2.45.3",
-    "@yudiel/react-qr-scanner": "^2.3.1",
     "braintree": "3.23.0",
     "braintree-web-drop-in": "^1.45.1",
     "date-fns": "3.6.0",

@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   const { orderId, registrationId, nonce } = body || {};
   if (!nonce) return NextResponse.json({ ok: false, error: "Missing nonce" }, { status: 400 });
 
-  const db = getSupabaseAdmin();
+  const db = await getSupabaseAdmin();
   const provider = getPaymentProvider();
 
   if (orderId) {

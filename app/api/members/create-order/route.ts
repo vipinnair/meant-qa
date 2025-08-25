@@ -4,7 +4,7 @@ import { getSupabaseAdmin } from "@/lib/supabase";
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const { type, full_name, email, phone, membership_type, amount_cents } = body || {};
-  const db = getSupabaseAdmin();
+  const db = await getSupabaseAdmin();
 
   if (type === "join") {
     if (!full_name || !email) return NextResponse.json({ error: "Missing required fields" }, { status: 400 });

@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   const { slug, full_name, email, qty_guests, member } = body || {};
   if (!slug || !full_name || !email) return NextResponse.json({ error: "Missing fields" }, { status: 400 });
 
-  const db = getSupabaseAdmin();
+  const db = await getSupabaseAdmin();
   const { data: event } = await db.from("events").select("*").eq("slug", slug).maybeSingle();
   if (!event) return NextResponse.json({ error: "Event not found" }, { status: 404 });
 

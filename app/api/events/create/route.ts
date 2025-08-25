@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
   if (!user || !env.adminEmails.includes(user.email!)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await req.json();
-  const db = getSupabaseAdmin();
+  const db = await getSupabaseAdmin();
   const ins = await db.from("events").insert({
     title: body.title,
     slug: body.slug,
