@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 import { env } from "@/lib/env";
 import { createClient } from "@supabase/supabase-js";
 
-export function getSupabaseServer() {
+export async function getSupabaseServer() {
   const cookieStore = cookies();
   return createServerClient(
     env.supabaseUrl,
@@ -19,7 +19,7 @@ export function getSupabaseServer() {
   );
 }
 
-export function getSupabaseAdmin() {
+export async function getSupabaseAdmin() {
   return createClient(env.supabaseUrl, env.supabaseServiceKey, {
     auth: { persistSession: false }
   });
